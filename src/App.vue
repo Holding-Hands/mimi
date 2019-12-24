@@ -1,32 +1,41 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+	<div id="app">
+		<TabBar></TabBar>
+		<transition >
+			<keep-alive>
+
+				<router-view/>
+
+			</keep-alive>
+		</transition>
+	</div>
 </template>
+<script>
+  import TabBar from 'components/common/tabBar/TabBar'
 
-<style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+  export default {
+    name: 'App',
+    components: {
+      TabBar
     }
   }
-}
+</script>
+<style lang="less">
+	@import 'assets/css/base.css';
+
+	.v-enter {
+		opacity: 0;
+		transform: translate(100%);
+	}
+
+	.v-leave-to {
+		opacity: 0;
+		transform: translate(-100%);
+		position: absolute;
+	}
+
+	.v-enter-active,
+	.v-leave-active {
+		transition: all .4s ease-in;
+	}
 </style>

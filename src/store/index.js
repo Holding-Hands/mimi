@@ -5,11 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    city: [{
+      code: "110000",
+      name: "北京市"
+    }, {
+      code: "110000",
+      name: "北京市"
+    }]
   },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+  mutations: {},
+  actions: {},
+  modules: {}
 })
